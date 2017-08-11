@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OneBelote.View;
 
 using Xamarin.Forms;
+using OneBelote.Locator;
 
 namespace OneBelote
 {
     public partial class App : Application
     {
+        private static readonly ViewModelLocator _locator = new ViewModelLocator();
+        public static ViewModelLocator Locator { get { return _locator; } }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new OneBelote.MainPage();
+            var detailPage = new NavigationPage(new Home());
+            MainPage = new MasterPage();
+
+            var masterPage = MainPage as MasterDetailPage;
+            masterPage.Detail = detailPage;
+
+            Locator.Navigation.Initialize(detailPage);
         }
 
         protected override void OnStart()
