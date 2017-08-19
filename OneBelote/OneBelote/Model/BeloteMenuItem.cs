@@ -11,7 +11,7 @@ namespace OneBelote.Model
 
     public class BeloteMenuItem
     {
-        public Image Icon { get; set; }
+        public string Icon { get; set; }
         public string Title { get; set; }
         public string Page { get; set; }
     }

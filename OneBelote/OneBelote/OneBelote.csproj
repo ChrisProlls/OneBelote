@@ -4,11 +4,7 @@
     <TargetFramework>netstandard1.4</TargetFramework>
     <PackageTargetFallback>portable-net45+win8+wpa81+wp8</PackageTargetFallback>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="View\MasterPage.xaml" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -22,6 +18,9 @@
     <EmbeddedResource Include="View\Menu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\NewGame.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -29,18 +28,23 @@
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.0-alpha" />
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+    <PackageReference Include="Xam.Plugin.Iconize" Version="2.0.0.29-beta" />
+    <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="2.0.0.29-beta" />
     <PackageReference Include="Xamarin.Forms" Version="2.3.5.256-pre6" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="View\NewGame.xaml.cs">
+      <DependentUpon>NewGame.xaml</DependentUpon>
+    </Compile>
     <Compile Update="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\MasterPage.xaml.cs">
-      <DependentUpon>View\MasterPage.xaml</DependentUpon>
+      <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Home.xaml.cs">
-      <DependentUpon>View\Home.xaml</DependentUpon>
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>

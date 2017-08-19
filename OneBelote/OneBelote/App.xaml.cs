@@ -25,6 +25,8 @@ namespace OneBelote
             masterPage.Detail = detailPage;
 
             Locator.Navigation.Initialize(detailPage);
+
+            Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
         }
 
         protected override void OnStart()

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OneBelote.View.Menu"
              xmlns:converter="clr-namespace:OneBelote.Converter;assembly=OneBelote"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              xmlns:b="clr-namespace:OneBelote.Behavior;assembly=OneBelote"
              Title="Master">
     <ContentPage.Resources>
@@ -30,10 +31,10 @@
                         <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
                     <Label
-              Grid.Column="1"
-              Grid.Row="2"
-              Text="AppName"
-              Style="{DynamicResource SubtitleStyle}"/>
+                      Grid.Column="1"
+                      Grid.Row="2"
+                      Text="OneBelote"
+                      Style="{DynamicResource SubtitleStyle}"/>
                 </Grid>
             </ListView.Header>
             <ListView.Behaviors>
@@ -45,11 +46,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <iconize:IconImage HeightRequest="20" Icon="{Binding Icon}" IconColor="Black" WidthRequest="20" Margin="0, 0, 5, 0"/>
                             <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    FontSize="24"/>
+                                VerticalTextAlignment="Center" 
+                                Text="{Binding Title}"
+                                FontSize="17"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
