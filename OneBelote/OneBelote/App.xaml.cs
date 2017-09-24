@@ -6,6 +6,7 @@ using OneBelote.View;
 
 using Xamarin.Forms;
 using OneBelote.Locator;
+using OneBelote.Localization;
 
 namespace OneBelote
 {
@@ -27,6 +28,13 @@ namespace OneBelote
             Locator.Navigation.Initialize(detailPage);
 
             Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
+
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+            {
+                var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                Strings.Resources.Culture = ci; // set the RESX for resource localization
+                DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+            }
         }
 
         protected override void OnStart()

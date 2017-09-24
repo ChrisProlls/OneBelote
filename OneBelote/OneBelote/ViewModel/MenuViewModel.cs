@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
 using OneBelote.Model;
+using OneBelote.Strings;
 using OneBelote.View;
 using Plugin.Iconize;
 using System;
@@ -19,10 +20,10 @@ namespace OneBelote.ViewModel
         public ObservableCollection<BeloteMenuItem> _menuItems = new ObservableCollection<BeloteMenuItem>(
             new[]
             {
-                new BeloteMenuItem { Title = "Home",  Page = nameof(Home), Icon = "fa-home" },
-                new BeloteMenuItem { Title = "Play", Page = nameof(NewGame), Icon = "fa-play" },
-                new BeloteMenuItem { Title = "Show results", Page = nameof(Home), Icon = "fa-trophy"  },
-                new BeloteMenuItem { Title = "Contact", Page = nameof(Home), Icon = "fa-envelope"  }
+                new BeloteMenuItem { Title = Resources.HomeLabel,  Page = nameof(Home), Icon = "fa-home" },
+                new BeloteMenuItem { Title = Resources.NewGame, Page = nameof(NewGame), Icon = "fa-play" },
+                new BeloteMenuItem { Title = Resources.LastParties, Page = nameof(Home), Icon = "fa-trophy"  },
+                new BeloteMenuItem { Title = Resources.AboutLabel, Page = nameof(Home), Icon = "fa-envelope"  }
             });
 
         public ObservableCollection<BeloteMenuItem> MenuItems

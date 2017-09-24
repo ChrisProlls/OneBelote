@@ -14,7 +14,8 @@ namespace OneBelote.View
 	{
 		public NewGame ()
 		{
-			InitializeComponent ();
-		}
+			InitializeComponent();
+            BindingContext = App.Locator.NewGame;
+        }
 	}
 }

@@ -21,18 +21,23 @@ namespace OneBelote.Locator
 
             // VM
             SimpleIoc.Default.Register<MenuViewModel>();
+            SimpleIoc.Default.Register<NewGameViewModel>();
 
             // Service
             SimpleIoc.Default.Register<NavigationService>();
             SimpleIoc.Default.Register<INavigationService>(() => Navigation);
 
             Navigation.Configure(nameof(Home), typeof(Home));
+            Navigation.Configure(nameof(NewGame), typeof(NewGame));
         }
 
         public NavigationService Navigation
             => ServiceLocator.Current.GetInstance<NavigationService>();
 
-        public MenuViewModel MasterPage
+        public MenuViewModel Menu
             => ServiceLocator.Current.GetInstance<MenuViewModel>();
+
+        public NewGameViewModel NewGame
+            => ServiceLocator.Current.GetInstance<NewGameViewModel>();
     }
 }

@@ -18,7 +18,7 @@ namespace OneBelote.View
         public Menu()
         {
             InitializeComponent();
-            BindingContext = App.Locator.MasterPage;
+            BindingContext = App.Locator.Menu;
         }        
     }
 }

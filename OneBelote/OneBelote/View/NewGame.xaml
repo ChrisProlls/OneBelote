@@ -1,8 +1,80 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OneBelote.View.NewGame">
-    <StackLayout>
-        <Label Text="Welcome to Xamarin Forms!" />
-    </StackLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelScore">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="25"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="0,4,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid  Margin="0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout HorizontalOptions="Center">
+
+                <Label x:Uid="Them" x:Name="TitleThem"/>
+                <Button 
+                        Text="+"
+                        Command="{Binding GetScoreForThemCommand}"
+                        TextColor="Green"/>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Grid.Column="1">
+
+                <Label x:Uid="Us" x:Name="TitleUs"/>
+                <Button 
+                        Text="+" 
+                        Command="{Binding GetScoreForUsCommand}"
+                        TextColor="Green" />
+            </StackLayout>
+        </Grid>
+
+
+
+        <ListView ItemsSource="{Binding ScoreLines}" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Them}" HorizontalOptions="End" Margin="0, 0, 10, 0"/>
+                            <Label Text="{Binding Us}" Grid.Column="1" Margin="10, 0, 0, 0"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    <Grid Margin="0, 0" Grid.Row="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="{Binding ScoreThem}" HorizontalOptions="Center"/>
+            <Label Text="{Binding ScoreUs}" HorizontalOptions="Center" Grid.Column="1"/>
+    </Grid>
+    </Grid>
+
 </ContentPage>
