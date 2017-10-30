@@ -1,5 +1,6 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
              x:Class="OneBelote.View.NewGame">
 
     <ContentPage.Resources>
@@ -20,29 +21,38 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid  Margin="0,5">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="TitleScoreStyle"  TargetType="Button">
+                        <Setter Property="WidthRequest" Value="30"/>
+                        <Setter Property="TextColor" Value="Green"/>
+                        <Setter Property="BackgroundColor" Value="Transparent"/>
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout HorizontalOptions="Center">
-
-                <Label x:Uid="Them" x:Name="TitleThem"/>
+            <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
                 <Button 
                         Text="+"
                         Command="{Binding GetScoreForThemCommand}"
-                        TextColor="Green"/>
+                        Style="{StaticResource TitleScoreStyle}"/>
+                <Label  x:Name="TitleThem" Text="{i18n:Translate Them}" VerticalOptions="Center"/>
+
             </StackLayout>
 
-            <StackLayout HorizontalOptions="Center" Grid.Column="1">
-
-                <Label x:Uid="Us" x:Name="TitleUs"/>
+            <StackLayout  HorizontalOptions="Center" Grid.Column="1" Orientation="Horizontal">
                 <Button 
                         Text="+" 
                         Command="{Binding GetScoreForUsCommand}"
-                        TextColor="Green" />
+                        Style="{StaticResource TitleScoreStyle}"/>
+                <Label x:Name="TitleUs" Text="{i18n:Translate Us}" VerticalOptions="Center"/>
+
             </StackLayout>
         </Grid>
 
@@ -66,15 +76,15 @@
             </ListView.ItemTemplate>
         </ListView>
 
-    <Grid Margin="0, 0" Grid.Row="2">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid Margin="0, 0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label Text="{Binding ScoreThem}" HorizontalOptions="Center"/>
+            <Label Text="{Binding ScoreThem}" HorizontalOptions="Center"/>
             <Label Text="{Binding ScoreUs}" HorizontalOptions="Center" Grid.Column="1"/>
-    </Grid>
+        </Grid>
     </Grid>
 
 </ContentPage>
