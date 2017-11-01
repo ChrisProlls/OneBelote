@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OneBelote.View.ScoreParameterPopup"
+             xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{i18n:Translate YourScore}" Margin="0 3 10 3"/>
+            <TextBox Grid.Column="1" x:Name="TBScore" Keyboard="Numeric"/>
+
+            <TextBlock Grid.Row="1" 
+                       Grid.ColumnSpan="2"
+                       Margin="0 3"
+                       x:Name="TBErrorNumber" 
+                       Text="{i18n:Translate YourScoreError}"
+                       Visibility="Collapsed" 
+                       TextWrapping="Wrap"
+                       Foreground="Red"/>
+
+            <TextBlock Text="Belote ?" Grid.Row="2" Margin="0 3 10 3"/>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+                <Picker x:Name="PBelote">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baboon</x:String>
+                            <x:String>Capuchin Monkey</x:String>
+                            <x:String>Blue Monkey</x:String>
+                            <x:String>Squirrel Monkey</x:String>
+                            <x:String>Golden Lion Tamarin</x:String>
+                            <x:String>Howler Monkey</x:String>
+                            <x:String>Japanese Macaque</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <RadioButton x:Name="NoneRadioButton" GroupName="BeloteGroup"  x:Uid="NoneContent" Checked="RadioButton_Checked"/>
+                <RadioButton x:Name="ThemRadioButton" GroupName="BeloteGroup" x:Uid="ThemContent" Checked="RadioButton_Checked"/>
+                <RadioButton GroupName="BeloteGroup" x:Uid="UsContent" Checked="RadioButton_Checked"/>
+            </StackPanel>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

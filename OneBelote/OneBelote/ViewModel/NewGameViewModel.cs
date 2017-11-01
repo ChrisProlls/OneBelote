@@ -47,13 +47,39 @@ namespace OneBelote.ViewModel
         {
             this.ScoreLines = new ObservableCollection<ScoreLine>();
 
-            /*this.GetScoreForThemCommand = new Command(GetScoreForThem);
-            this.GetScoreForUsCommand = new Command(GetScoreForUs);*/
+            this.GetScoreForThemCommand = new Command(GetScoreThem);
+            this.GetScoreForUsCommand = new Command(GetScoreUs);
 
             this.SaveScoreCommand = new Command(() => SaveScore());
         }
 
         #region Methods
+
+        private void GetScoreThem()
+        {
+            this._currentScoreForTeam = ScoreForTeam.Them;
+            this.SetScore(new ScoreParameter
+            {
+                Score = 50,
+                Announcement = new AnnoucementParameter(),
+                BeloteAnnoucement = BeloteAnnoucementEnum.None
+            });
+
+            this.OnScoreRequested();
+        }
+
+        private void GetScoreUs()
+        {
+            this._currentScoreForTeam = ScoreForTeam.Us;
+            this.SetScore(new ScoreParameter
+            {
+                Score = 50,
+                Announcement = new AnnoucementParameter(),
+                BeloteAnnoucement = BeloteAnnoucementEnum.None
+            });
+
+            this.OnScoreRequested();
+        }
 
         private void SaveScore()
         {
@@ -98,12 +124,20 @@ namespace OneBelote.ViewModel
         }
 
         #endregion
-    }
 
-    public class ScoreRequestedEventArgs : EventArgs
-    {
-        public string ScoreTold { get; set; }
+        #region Events
+
+        public delegate void ScoreRequestedEventHandler(object sender, EventArgs e);
+        public event ScoreRequestedEventHandler ScoreRequested;
+
+        private void OnScoreRequested()
+        {
+            ScoreRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        #endregion
     }
+    
 
     public class ScoreParameter
     {
