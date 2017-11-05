@@ -152,13 +152,6 @@ namespace OneBelote.ViewModel
         public int Us { get; set; }
     }
 
-    public enum BeloteAnnoucementEnum
-    {
-        None,
-        Them,
-        Us
-    }
-
     public enum ScoreForTeam
     {
         Them,

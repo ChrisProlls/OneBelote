@@ -21,7 +21,8 @@ namespace OneBelote.View
             BindingContext = App.Locator.NewGame;
 
             ViewModel.ScoreRequested += async (sender, args) => {
-                ScorePopup.ResetPopup(args.ScoreTold);
+                await Navigation.PushModalAsync(new ScoreParameterPopup());
+                /*ScorePopup.ResetPopup(args.ScoreTold);
 
                 ContentDialogScore.Visibility = Visibility.Visible;
                 var result = await ContentDialogScore.ShowAsync();
@@ -37,7 +38,7 @@ namespace OneBelote.View
                             Them = ScorePopup.AnnouncementThem,
                             Us = ScorePopup.AnnouncementUs
                         }
-                    });
+                    });*/
             };
 
         }

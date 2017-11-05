@@ -33,19 +33,10 @@
 
             <TextBlock Text="Belote ?" Grid.Row="2" Margin="0 3 10 3"/>
             <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
-                <Picker x:Name="PBelote">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Baboon</x:String>
-                            <x:String>Capuchin Monkey</x:String>
-                            <x:String>Blue Monkey</x:String>
-                            <x:String>Squirrel Monkey</x:String>
-                            <x:String>Golden Lion Tamarin</x:String>
-                            <x:String>Howler Monkey</x:String>
-                            <x:String>Japanese Macaque</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                <Picker Title="Select a monkey"
+                        ItemsSource="{Binding PickerModels}"
+                        ItemDisplayBinding="{Binding Label}"
+                        SelectedItem="{Binding SelectedAnnoucement}" />
                 <RadioButton x:Name="NoneRadioButton" GroupName="BeloteGroup"  x:Uid="NoneContent" Checked="RadioButton_Checked"/>
                 <RadioButton x:Name="ThemRadioButton" GroupName="BeloteGroup" x:Uid="ThemContent" Checked="RadioButton_Checked"/>
                 <RadioButton GroupName="BeloteGroup" x:Uid="UsContent" Checked="RadioButton_Checked"/>

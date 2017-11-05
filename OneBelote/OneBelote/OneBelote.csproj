@@ -65,7 +65,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ScoreParameterPopup.xaml.cs">
-      <SubType>Code</SubType>
+      <DependentUpon>ScoreParameterPopup.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
