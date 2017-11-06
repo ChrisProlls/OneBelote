@@ -195,6 +195,9 @@
   <data name="UsContent" xml:space="preserve">
     <value>Nous</value>
   </data>
+  <data name="WhoHasBelote" xml:space="preserve">
+    <value>Qui a la Belote ?</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>Oui</value>
   </data>

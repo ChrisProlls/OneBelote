@@ -296,6 +296,15 @@ namespace OneBelote.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Who has a Belote ?.
+        /// </summary>
+        internal static string WhoHasBelote {
+            get {
+                return ResourceManager.GetString("WhoHasBelote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
         internal static string Yes {
