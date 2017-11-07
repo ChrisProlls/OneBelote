@@ -58,26 +58,12 @@ namespace OneBelote.ViewModel
         private void GetScoreThem()
         {
             this._currentScoreForTeam = ScoreForTeam.Them;
-            this.SetScore(new ScoreParameter
-            {
-                Score = 50,
-                Announcement = new AnnoucementParameter(),
-                BeloteAnnoucement = BeloteAnnoucementEnum.None
-            });
-
             this.OnScoreRequested();
         }
 
         private void GetScoreUs()
         {
             this._currentScoreForTeam = ScoreForTeam.Us;
-            this.SetScore(new ScoreParameter
-            {
-                Score = 50,
-                Announcement = new AnnoucementParameter(),
-                BeloteAnnoucement = BeloteAnnoucementEnum.None
-            });
-
             this.OnScoreRequested();
         }
 

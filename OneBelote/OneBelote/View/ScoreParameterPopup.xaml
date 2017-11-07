@@ -28,7 +28,7 @@
 
             <Label Text="{i18n:Translate YourScore}"
                    Style="{StaticResource LabelStyle}"/>
-            <Entry Grid.Column="1" x:Name="TBScore" Keyboard="Numeric" />
+            <Entry Grid.Column="1" x:Name="TBScore" Keyboard="Numeric"  Text="{Binding Score}"/>
 
             <Label Grid.Row="1" 
                        Grid.ColumnSpan="2"
@@ -50,10 +50,10 @@
             <Label Grid.Row="4" Text="{i18n:Translate Them}" Style="{StaticResource LabelStyle}" />
             <Label Grid.Row="5" Text="{i18n:Translate Us}" Style="{StaticResource LabelStyle}" />
 
-            <Editor  Grid.Row="4" Grid.Column="1" Keyboard="Numeric" />
-            <Editor  Grid.Row="5" Grid.Column="1" Keyboard="Numeric" />
+            <Editor  Grid.Row="4" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementThem}"/>
+            <Editor  Grid.Row="5" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementUs}"/>
 
-            <Button Grid.Column="1" Grid.Row="6" Text="{i18n:Translate Go}" VerticalOptions="Start" HorizontalOptions="End"></Button>
+            <Button Clicked="OnGoClicked" Grid.Column="1" Grid.Row="6" Text="{i18n:Translate Go}" VerticalOptions="Start" HorizontalOptions="End"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
