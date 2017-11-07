@@ -132,6 +132,9 @@
   <data name="Description" xml:space="preserve">
     <value>Alsatian (French region) in the soul and Windows developer for several years, I enjoy developing Windows 10 applications to provide quality content to the platform, and facilitate the daily lives of people.</value>
   </data>
+  <data name="Go" xml:space="preserve">
+    <value>Go</value>
+  </data>
   <data name="HomeAppDesc" xml:space="preserve">
     <value>On the left you can access to a menu allowing you to create a new game or watch the last games you saved.</value>
   </data>

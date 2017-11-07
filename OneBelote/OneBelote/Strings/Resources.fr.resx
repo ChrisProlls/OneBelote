@@ -132,6 +132,9 @@
   <data name="Description" xml:space="preserve">
     <value>Alsacien dans l’âme et développeur Windows pendant plusieurs années, j’aime développer ddes applications Windows 10 afin de fournir un contenu de qualité sur la plate-forme et faciliter la vie quotidienne des personnes.</value>
   </data>
+  <data name="Go" xml:space="preserve">
+    <value>Go</value>
+  </data>
   <data name="HomeAppDesc" xml:space="preserve">
     <value>Sur la gauche, vous pouvez accéder à un menu vous permettant de créer un nouveau jeu ou regarder les derniers jeux que vous enregistré.</value>
   </data>
