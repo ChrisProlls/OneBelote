@@ -7,6 +7,7 @@ using OneBelote.View;
 using Xamarin.Forms;
 using OneBelote.Locator;
 using OneBelote.Localization;
+using Plugin.Iconize;
 
 namespace OneBelote
 {
@@ -19,7 +20,7 @@ namespace OneBelote
         {
             InitializeComponent();
 
-            var detailPage = new NavigationPage(new Home());
+            var detailPage = new IconNavigationPage(new Home());
             MainPage = new MasterPage();
 
             var masterPage = MainPage as MasterDetailPage;

@@ -165,6 +165,9 @@
   <data name="NewGame" xml:space="preserve">
     <value>New game</value>
   </data>
+  <data name="NewScore" xml:space="preserve">
+    <value>New Score</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
@@ -206,8 +209,5 @@
   </data>
   <data name="YourScore" xml:space="preserve">
     <value>Your score</value>
-  </data>
-  <data name="YourScoreError" xml:space="preserve">
-    <value>The specified score is not a number. Please enter a correct value</value>
   </data>
 </root>

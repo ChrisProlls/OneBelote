@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Views;
+using Plugin.Iconize;
 using System;
 using System.Collections.Generic;
 using System.Linq;

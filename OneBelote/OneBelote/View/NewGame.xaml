@@ -1,8 +1,11 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
-             x:Class="OneBelote.View.NewGame">
-
+             x:Class="OneBelote.View.NewGame"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize">
+    <ContentPage.ToolbarItems>
+        <iconize:IconToolbarItem Icon="fa-save" IconColor="White"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label" x:Key="LabelScore">
@@ -81,8 +84,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Text="{Binding ScoreThem}" HorizontalOptions="Center"/>
-            <Label Text="{Binding ScoreUs}" HorizontalOptions="Center" Grid.Column="1"/>
+            <Label Text="{Binding ScoreThem}" HorizontalOptions="Center" FontSize="Large"/>
+            <Label Text="{Binding ScoreUs}" HorizontalOptions="Center" Grid.Column="1" FontSize="Large"/>
         </Grid>
     </Grid>
 

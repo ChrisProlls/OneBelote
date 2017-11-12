@@ -20,40 +20,36 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
+            <Label Text="{i18n:Translate NewScore}" Grid.ColumnSpan="2" FontSize="Large"/>
+
             <Label Text="{i18n:Translate YourScore}"
-                   Style="{StaticResource LabelStyle}"/>
-            <Entry Grid.Column="1" x:Name="TBScore" Keyboard="Numeric"  Text="{Binding Score}"/>
+                   Style="{StaticResource LabelStyle}"
+                   Grid.Row="1"/>
+            <Entry Grid.Column="1" Grid.Row="1" x:Name="TBScore" Keyboard="Numeric"  Text="{Binding Score}"/>
 
-            <Label Grid.Row="1" 
-                       Grid.ColumnSpan="2"
-                       Margin="0, 3"
-                       x:Name="TBErrorNumber" 
-                       Text="{i18n:Translate YourScoreError}"
-                       IsVisible="False"
-                       TextColor="Red"/>
-
-            <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Vertical">
+            <StackLayout Grid.Column="1" Grid.Row="3" Orientation="Vertical">
                 <Picker Title="{i18n:Translate WhoHasBelote}"
                         ItemsSource="{Binding PickerModels}"
                         ItemDisplayBinding="{Binding Label}"
                         SelectedItem="{Binding SelectedAnnoucement}"/>
             </StackLayout>
 
-            <Label Text="{i18n:Translate Announcement}" Margin="0, 5" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Large"/>
+            <Label Text="{i18n:Translate Announcement}" Margin="0, 5" Grid.Row="4" Grid.ColumnSpan="2" FontSize="Large"/>
 
-            <Label Grid.Row="4" Text="{i18n:Translate Them}" Style="{StaticResource LabelStyle}" />
-            <Label Grid.Row="5" Text="{i18n:Translate Us}" Style="{StaticResource LabelStyle}" />
+            <Label Grid.Row="5" Text="{i18n:Translate Them}" Style="{StaticResource LabelStyle}" />
+            <Label Grid.Row="6" Text="{i18n:Translate Us}" Style="{StaticResource LabelStyle}" />
 
-            <Editor  Grid.Row="4" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementThem}"/>
-            <Editor  Grid.Row="5" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementUs}"/>
+            <Editor  Grid.Row="5" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementThem}"/>
+            <Editor  Grid.Row="6" Grid.Column="1" Keyboard="Numeric" Text="{Binding AnnouncementUs}"/>
 
-            <Button Clicked="OnGoClicked" Grid.Column="1" Grid.Row="6" Text="{i18n:Translate Go}" VerticalOptions="Start" HorizontalOptions="End"></Button>
+            <Button Clicked="OnGoClicked" Grid.Column="1" Grid.Row="7" Text="{i18n:Translate Go}" VerticalOptions="Start" HorizontalOptions="End"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
