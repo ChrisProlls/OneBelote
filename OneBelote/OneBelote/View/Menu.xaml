@@ -6,7 +6,8 @@
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              xmlns:b="clr-namespace:OneBelote.Behavior;assembly=OneBelote"
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
-             Title="Master">
+             Title="Master"
+             BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
@@ -19,23 +20,18 @@
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Grid BackgroundColor="#03A9F4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                    </Grid.ColumnDefinitions>
+                <Grid BackgroundColor="{StaticResource CustomColor}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="80"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
                     </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
                     <Label
-                      Grid.Column="1"
-                      Grid.Row="2"
                       Text="OneBelote"
-                      Style="{DynamicResource SubtitleStyle}"/>
+                        TextColor="White"
+                        Margin="10, 70, 0, 10"
+                        FontSize="Large"/>
                 </Grid>
             </ListView.Header>
             <ListView.Behaviors>

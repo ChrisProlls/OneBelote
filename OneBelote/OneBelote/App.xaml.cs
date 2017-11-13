@@ -20,15 +20,15 @@ namespace OneBelote
         {
             InitializeComponent();
 
-            var detailPage = new IconNavigationPage(new Home());
+            var navigationPage = this.CreateNavigationPage();
             MainPage = new MasterPage();
 
             var masterPage = MainPage as MasterDetailPage;
-            masterPage.Detail = detailPage;
+            masterPage.Detail = navigationPage;
 
-            Locator.Navigation.Initialize(detailPage);
+            Locator.Navigation.Initialize(navigationPage);
 
-            Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
+            Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
 
             if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
             {
@@ -36,6 +36,16 @@ namespace OneBelote
                 Strings.Resources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
+        }
+
+        private NavigationPage CreateNavigationPage()
+        {
+            var navigationPage = new IconNavigationPage(new Home())
+            {
+                BarBackgroundColor = (Color)this.Resources["CustomColor"]
+            };
+
+            return navigationPage;
         }
 
         protected override void OnStart()

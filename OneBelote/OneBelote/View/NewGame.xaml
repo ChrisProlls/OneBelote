@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
              x:Class="OneBelote.View.NewGame"
-             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize">
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
+             BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.ToolbarItems>
         <iconize:IconToolbarItem Icon="fa-save" IconColor="White"/>
     </ContentPage.ToolbarItems>
