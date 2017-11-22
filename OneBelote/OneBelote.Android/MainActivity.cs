@@ -22,6 +22,8 @@ namespace OneBelote.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             LoadApplication(new App());
+
+            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(139, 0, 0));
         }
     }
 }
