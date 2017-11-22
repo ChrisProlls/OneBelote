@@ -23,7 +23,7 @@ namespace OneBelote.View
             ViewModel.ScoreRequested += async (sender, args) =>
             {
                 var scoreModal = new ScoreParameterPopup();
-                scoreModal.Disappearing += (object modal, EventArgs e) =>
+                scoreModal.GoClicked += (object modal, EventArgs e) =>
                 {
                     ViewModel.SetScore(scoreModal.GetScoreParameter());
                 };

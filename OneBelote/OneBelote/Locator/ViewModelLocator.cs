@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using OneBelote.Service;
+using OneBelote.SQLite;
 using OneBelote.View;
 using OneBelote.ViewModel;
 using System;
@@ -24,6 +25,7 @@ namespace OneBelote.Locator
             // Service
             SimpleIoc.Default.Register<NavigationService>();
             SimpleIoc.Default.Register<INavigationService>(() => Navigation);
+            SimpleIoc.Default.Register<GameDatabase>();
 
             Navigation.Configure(nameof(Home), typeof(Home));
             Navigation.Configure(nameof(NewGame), typeof(NewGame));

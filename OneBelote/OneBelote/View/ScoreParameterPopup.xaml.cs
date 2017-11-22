@@ -16,6 +16,7 @@ namespace OneBelote.View
     public partial class ScoreParameterPopup : ContentPage
     {
         private ScoreParameterPopupViewModel ViewModel => BindingContext as ScoreParameterPopupViewModel;
+
         public ScoreParameterPopup()
         {
             InitializeComponent();
@@ -32,6 +33,18 @@ namespace OneBelote.View
         public async Task OnGoClicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync(true);
+            this.OnGoClicked();
         }
+
+        #region Event
+
+        protected virtual void OnGoClicked()
+        {
+            GoClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler GoClicked;
+
+        #endregion
     }
 }

@@ -32,6 +32,7 @@
                         <Setter Property="WidthRequest" Value="30"/>
                         <Setter Property="TextColor" Value="Green"/>
                         <Setter Property="BackgroundColor" Value="Transparent"/>
+                        <Setter Property="BorderColor" Value="Transparent"/>
                     </Style>
                 </ResourceDictionary>
             </Grid.Resources>

@@ -6,13 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Style\**" />
+    <EmbeddedResource Remove="Style\**" />
+    <None Remove="Style\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="View\ScoreParameterPopup.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.0.1" />
     <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.0.1-alpha" />
-    <PackageReference Include="sqlite-net" Version="1.0.8" />
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
     <PackageReference Include="Xam.Plugin.Iconize" Version="2.0.0.37-beta" />
     <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="2.0.0.37-beta" />
@@ -56,10 +62,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Style\" />
   </ItemGroup>
 
 </Project>

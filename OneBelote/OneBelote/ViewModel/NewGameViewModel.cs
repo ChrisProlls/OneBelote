@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using OneBelote.Model;
+using OneBelote.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,18 +40,22 @@ namespace OneBelote.ViewModel
                 return ScoreLines.Sum(line => line.Us);
             }
         }
+
         private ScoreForTeam _currentScoreForTeam;
+        private Score _currentScore;
+        private readonly GameDatabase _gameRepository;
 
         #endregion
 
-        public NewGameViewModel()
+        public NewGameViewModel(GameDatabase gameRepository)
         {
+            this._gameRepository = gameRepository;
             this.ScoreLines = new ObservableCollection<ScoreLine>();
 
             this.GetScoreForThemCommand = new Command(GetScoreThem);
             this.GetScoreForUsCommand = new Command(GetScoreUs);
 
-            this.SaveScoreCommand = new Command(() => SaveScore());
+            this.SaveScoreCommand = new Command(async () => await SaveScore());
         }
 
         #region Methods
@@ -67,14 +72,16 @@ namespace OneBelote.ViewModel
             this.OnScoreRequested();
         }
 
-        private void SaveScore()
+        private async Task SaveScore()
         {
-            // TODO : Save score in roaming ?
+            if (this._currentScore == null)
+                this._currentScore = new Score();
 
-            this.ScoreLines.Clear();
+            this._currentScore.Them = this.ScoreThem;
+            this._currentScore.Us = this.ScoreUs;
 
-            RaisePropertyChanged(nameof(ScoreThem));
-            RaisePropertyChanged(nameof(ScoreUs));
+            // Save score in SQLite
+            await this._gameRepository.SaveScore(this._currentScore);
         }
 
         public void SetScore(ScoreParameter scoreParam)
