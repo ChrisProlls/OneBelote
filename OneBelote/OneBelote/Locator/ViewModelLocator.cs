@@ -1,6 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
 using OneBelote.Service;
 using OneBelote.View;
 using OneBelote.ViewModel;
@@ -17,8 +16,6 @@ namespace OneBelote.Locator
         /// </summary>
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
             // VM
             SimpleIoc.Default.Register<MenuViewModel>();
             SimpleIoc.Default.Register<NewGameViewModel>();
@@ -33,15 +30,15 @@ namespace OneBelote.Locator
         }
 
         public NavigationService Navigation
-            => ServiceLocator.Current.GetInstance<NavigationService>();
+            => SimpleIoc.Default.GetInstance<NavigationService>();
 
         public MenuViewModel Menu
-            => ServiceLocator.Current.GetInstance<MenuViewModel>();
+            => SimpleIoc.Default.GetInstance<MenuViewModel>();
 
         public NewGameViewModel NewGame
-            => ServiceLocator.Current.GetInstance<NewGameViewModel>();
+            => SimpleIoc.Default.GetInstance<NewGameViewModel>();
 
         public ScoreParameterPopupViewModel ScoreParameterPopup
-            => ServiceLocator.Current.GetInstance<ScoreParameterPopupViewModel>();
+            => SimpleIoc.Default.GetInstance<ScoreParameterPopupViewModel>();
     }
 }

@@ -4,7 +4,7 @@
              x:Class="OneBelote.View.NewGame"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize">
     <ContentPage.ToolbarItems>
-        <iconize:IconToolbarItem Icon="fa-save" IconColor="White"/>
+        <iconize:IconToolbarItem Icon="fa-save" IconColor="White" Command="{Binding SaveScoreCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
