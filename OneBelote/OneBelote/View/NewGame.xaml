@@ -3,7 +3,8 @@
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
              x:Class="OneBelote.View.NewGame"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="{i18n:Translate NewGame}">
     <ContentPage.ToolbarItems>
         <iconize:IconToolbarItem Icon="fa-save" IconColor="White" Command="{Binding SaveScoreCommand}"/>
     </ContentPage.ToolbarItems>

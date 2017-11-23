@@ -10,7 +10,6 @@
 
 namespace OneBelote.Strings {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -40,7 +39,7 @@ namespace OneBelote.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OneBelote.Strings.Resources", typeof(Resources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OneBelote.Strings.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -251,11 +250,11 @@ namespace OneBelote.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saving.
+        ///   Looks up a localized string similar to Score saved.
         /// </summary>
-        internal static string Saving {
+        internal static string SavingOk {
             get {
-                return ResourceManager.GetString("Saving", resourceCulture);
+                return ResourceManager.GetString("SavingOk", resourceCulture);
             }
         }
         

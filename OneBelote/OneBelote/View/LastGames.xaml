@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:OneBelote.Converter;assembly=OneBelote"
+             xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
+             xmlns:b="clr-namespace:OneBelote.Behavior;assembly=OneBelote"
+             x:Class="OneBelote.View.LastGames"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="{i18n:Translate LastParties}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid Padding="0,4,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid  Margin="0,5">
+                <Grid.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Label" x:Key="TitleScore">
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="Segoe UI"/>
+                            <Setter Property="FontSize" Value="Medium"/>
+                        </Style>
+                    </ResourceDictionary>
+                </Grid.Resources>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="{i18n:Translate Them}" Style="{StaticResource TitleScore}"/>
+                <Label  Text="{i18n:Translate Us}" Style="{StaticResource TitleScore}" Grid.Column="1"/>
+            </Grid>
+
+            <ListView ItemsSource="{Binding Scores}"
+                      Grid.Row="1">
+
+                <ListView.Behaviors>
+                    <b:EventToCommandBehavior 
+                    EventName="ItemTapped" 
+                    Command="{Binding SavedScoreClickedCommand}" 
+                    EventArgsConverter="{StaticResource ItemTappedConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.Resources>
+                                    <ResourceDictionary>
+                                        <Style TargetType="Label" x:Key="LabelScore">
+                                            <Setter Property="TextColor" Value="Black"/>
+                                        </Style>
+                                    </ResourceDictionary>
+                                </Grid.Resources>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Them}" 
+                                       Style="{StaticResource LabelScore}"
+                                       HorizontalTextAlignment="End" 
+                                       VerticalOptions="Center"
+                                       Margin="0, 0, 10, 0"/>
+                                <Label Text="{Binding Us}" 
+                                       Style="{StaticResource LabelScore}"
+                                       Grid.Column="1" 
+                                       VerticalOptions="Center"
+                                       Margin="10, 0, 0, 0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using OneBelote.ViewModel;
+﻿using OneBelote.Model;
+using OneBelote.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace OneBelote.View
         public NewGame()
         {
             InitializeComponent();
+            InitPage();
+        }
+
+        public NewGame(Score score) : this()
+        {
+            ViewModel.InitScore(score);
+        }
+
+        private void InitPage()
+        {
             BindingContext = App.Locator.NewGame;
 
             ViewModel.ScoreRequested += async (sender, args) =>
@@ -25,12 +36,11 @@ namespace OneBelote.View
                 var scoreModal = new ScoreParameterPopup();
                 scoreModal.GoClicked += (object modal, EventArgs e) =>
                 {
-                    ViewModel.SetScore(scoreModal.GetScoreParameter());
+                    ViewModel.AddScore(scoreModal.GetScoreParameter());
                 };
 
                 await Navigation.PushModalAsync(scoreModal);
             };
-
         }
     }
 }

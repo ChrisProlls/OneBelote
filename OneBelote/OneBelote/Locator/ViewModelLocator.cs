@@ -20,6 +20,7 @@ namespace OneBelote.Locator
             // VM
             SimpleIoc.Default.Register<MenuViewModel>();
             SimpleIoc.Default.Register<NewGameViewModel>();
+            SimpleIoc.Default.Register<LastGamesViewModel>();
             SimpleIoc.Default.Register<ScoreParameterPopupViewModel>();
 
             // Service
@@ -29,6 +30,7 @@ namespace OneBelote.Locator
 
             Navigation.Configure(nameof(Home), typeof(Home));
             Navigation.Configure(nameof(NewGame), typeof(NewGame));
+            Navigation.Configure(nameof(LastGames), typeof(LastGames));
         }
 
         public NavigationService Navigation
@@ -39,6 +41,9 @@ namespace OneBelote.Locator
 
         public NewGameViewModel NewGame
             => SimpleIoc.Default.GetInstance<NewGameViewModel>();
+
+        public LastGamesViewModel LastGames
+            => SimpleIoc.Default.GetInstance<LastGamesViewModel>();
 
         public ScoreParameterPopupViewModel ScoreParameterPopup
             => SimpleIoc.Default.GetInstance<ScoreParameterPopupViewModel>();

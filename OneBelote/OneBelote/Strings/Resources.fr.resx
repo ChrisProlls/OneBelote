@@ -180,8 +180,8 @@
   <data name="Save.Label" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
-  <data name="Saving" xml:space="preserve">
-    <value>Sauvegarde</value>
+  <data name="SavingOk" xml:space="preserve">
+    <value>Score enregistré</value>
   </data>
   <data name="Them" xml:space="preserve">
     <value>Eux</value>

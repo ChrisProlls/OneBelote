@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using OneBelote.Model;
 using OneBelote.SQLite;
+using OneBelote.Strings;
+using OneBelote.Toast;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -82,9 +84,26 @@ namespace OneBelote.ViewModel
 
             // Save score in SQLite
             await this._gameRepository.SaveScore(this._currentScore);
+
+            DependencyService.Get<IToast>().ShortAlert(Resources.SavingOk);
         }
 
-        public void SetScore(ScoreParameter scoreParam)
+        public void InitScore(Score score)
+        {
+            this._currentScore = score;
+
+            this.ScoreLines.Clear();
+            this.ScoreLines.Add(new ScoreLine
+            {
+                Them = score.Them,
+                Us = score.Us
+            });
+
+            RaisePropertyChanged(nameof(ScoreThem));
+            RaisePropertyChanged(nameof(ScoreUs));
+        }
+
+        public void AddScore(ScoreParameter scoreParam)
         {
             var scoreThem = 0;
             var scoreUs = 0;
