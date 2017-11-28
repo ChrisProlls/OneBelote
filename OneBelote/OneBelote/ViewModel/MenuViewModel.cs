@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
+using OneBelote.Message;
 using OneBelote.Model;
 using OneBelote.Strings;
 using OneBelote.View;
@@ -16,6 +18,7 @@ namespace OneBelote.ViewModel
     public class MenuViewModel : ViewModelBase
     {
         public Command<BeloteMenuItem> NavigateTo { get; set; }
+
 
         public ObservableCollection<BeloteMenuItem> _menuItems = new ObservableCollection<BeloteMenuItem>(
             new[]
@@ -41,6 +44,8 @@ namespace OneBelote.ViewModel
             NavigateTo = new Command<BeloteMenuItem>(sender =>
             {
                 navigationService.NavigateTo(sender.Page);
+
+                Messenger.Default.Send(new NavigatedMessage());
             });
         }
     }

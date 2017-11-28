@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using OneBelote.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,9 @@ namespace OneBelote.View
         public MasterPage()
         {
             InitializeComponent();
+
+            Messenger.Default.Register<NavigatedMessage>(this, (message) => IsPresented = false);
+
         }
     }
 }

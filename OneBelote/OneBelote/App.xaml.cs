@@ -19,14 +19,12 @@ namespace OneBelote
         public App()
         {
             InitializeComponent();
-
-            var navigationPage = this.CreateNavigationPage();
+            
             MainPage = new MasterPage();
 
             var masterPage = MainPage as MasterDetailPage;
-            masterPage.Detail = navigationPage;
 
-            Locator.Navigation.Initialize(navigationPage);
+            Locator.Navigation.Initialize(masterPage.Detail as NavigationPage);
 
             Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
 
@@ -36,16 +34,6 @@ namespace OneBelote
                 Strings.Resources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-        }
-
-        private NavigationPage CreateNavigationPage()
-        {
-            var navigationPage = new IconNavigationPage(new Home())
-            {
-                BarBackgroundColor = (Color)this.Resources["CustomColor"]
-            };
-
-            return navigationPage;
         }
 
         protected override void OnStart()

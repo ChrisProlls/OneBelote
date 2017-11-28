@@ -38,6 +38,6 @@ namespace OneBelote.ViewModel
 
             foreach (var score in _gameRepository.Score)
                 Scores.Add(score);
-        }
+        }        
     }
 }

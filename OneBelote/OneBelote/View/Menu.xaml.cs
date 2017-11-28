@@ -19,6 +19,6 @@ namespace OneBelote.View
         {
             InitializeComponent();
             BindingContext = App.Locator.Menu;
-        }        
+        }
     }
 }

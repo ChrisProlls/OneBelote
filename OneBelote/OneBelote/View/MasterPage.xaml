@@ -2,15 +2,16 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OneBelote.View.MasterPage"
-             xmlns:pages="clr-namespace:OneBelote.View">
+             xmlns:pages="clr-namespace:OneBelote.View"
+                  xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize">
     <MasterDetailPage.Master>
         <pages:Menu x:Name="Menu" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <iconize:IconNavigationPage BarBackgroundColor="{StaticResource CustomColor}">
             <x:Arguments>
                 <pages:Home />
             </x:Arguments>
-        </NavigationPage>
+        </iconize:IconNavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>
