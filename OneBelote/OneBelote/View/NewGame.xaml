@@ -2,14 +2,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
              x:Class="OneBelote.View.NewGame"
+             xmlns:b="clr-namespace:OneBelote.Behavior;assembly=OneBelote"
+             xmlns:converter="clr-namespace:OneBelote.Converter;assembly=OneBelote"
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{i18n:Translate NewGame}">
+
     <ContentPage.ToolbarItems>
         <iconize:IconToolbarItem Icon="fa-save" IconColor="White" Command="{Binding SaveScoreCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converter:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
+
             <Style TargetType="Label" x:Key="LabelScore">
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
@@ -64,6 +69,12 @@
 
 
         <ListView ItemsSource="{Binding ScoreLines}" Grid.Row="1">
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior 
+                    EventName="ItemTapped" 
+                    Command="{Binding EditLineCommand}" 
+                    EventArgsConverter="{StaticResource ItemTappedConverter}" />
+            </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -3,9 +3,11 @@ using OneBelote.Model;
 using OneBelote.SQLite;
 using OneBelote.Strings;
 using OneBelote.Toast;
+using OneBelote.ViewModel.CommandArgs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,7 @@ namespace OneBelote.ViewModel
 
         public Command GetScoreForThemCommand { get; set; }
         public Command GetScoreForUsCommand { get; set; }
-
+        public Command<ScoreLine> EditLineCommand { get; set; }
         public Command SaveScoreCommand { get; set; }
 
         #endregion
@@ -52,14 +54,19 @@ namespace OneBelote.ViewModel
         public NewGameViewModel(GameDatabase gameRepository)
         {
             this._gameRepository = gameRepository;
+
             this.ScoreLines = new ObservableCollection<ScoreLine>();
+            this.ScoreLines.CollectionChanged += (object sender, NotifyCollectionChangedEventArgs e) =>
+            {
+                this.RefreshView();
+            };
 
             this.GetScoreForThemCommand = new Command(GetScoreThem);
             this.GetScoreForUsCommand = new Command(GetScoreUs);
-
+            this.EditLineCommand = new Command<ScoreLine>(line => this.OnEditLineRequested(line));
             this.SaveScoreCommand = new Command(async () => await SaveScore());
         }
-
+        
         #region Methods
 
         private void GetScoreThem()
@@ -98,9 +105,6 @@ namespace OneBelote.ViewModel
                 Them = score.Them,
                 Us = score.Us
             });
-
-            RaisePropertyChanged(nameof(ScoreThem));
-            RaisePropertyChanged(nameof(ScoreUs));
         }
 
         public void AddScore(ScoreParameter scoreParam)
@@ -130,7 +134,10 @@ namespace OneBelote.ViewModel
             }
 
             this.ScoreLines.Add(new ScoreLine { Them = scoreThem, Us = scoreUs });
+        }
 
+        public void RefreshView()
+        {
             RaisePropertyChanged(nameof(ScoreThem));
             RaisePropertyChanged(nameof(ScoreUs));
         }
@@ -142,10 +149,14 @@ namespace OneBelote.ViewModel
         public delegate void ScoreRequestedEventHandler(object sender, EventArgs e);
         public event ScoreRequestedEventHandler ScoreRequested;
 
-        private void OnScoreRequested()
-        {
-            ScoreRequested?.Invoke(this, EventArgs.Empty);
-        }
+        private void OnScoreRequested() 
+            => ScoreRequested?.Invoke(this, EventArgs.Empty);
+
+        public delegate void EditLineRequestedEventHandler(object sender, EditLineEventArgs e);
+        public event EditLineRequestedEventHandler EditLineRequested;
+
+        private void OnEditLineRequested(ScoreLine line) 
+            => EditLineRequested?.Invoke(this, new EditLineEventArgs { LineToEdit = line });
 
         #endregion
     }

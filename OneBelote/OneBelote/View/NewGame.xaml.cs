@@ -1,5 +1,6 @@
 ﻿using OneBelote.Model;
 using OneBelote.ViewModel;
+using OneBelote.ViewModel.CommandArgs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,17 @@ namespace OneBelote.View
                 };
 
                 await Navigation.PushModalAsync(scoreModal);
+            };
+
+            ViewModel.EditLineRequested += async (sender, args) =>
+            {
+                var editModel = new EditLinePopup(args.LineToEdit);
+                editModel.GoClicked += (object modal, EventArgs e) =>
+                {
+                    this.ViewModel.RefreshView();
+                };
+
+                await Navigation.PushModalAsync(editModel);
             };
         }
     }

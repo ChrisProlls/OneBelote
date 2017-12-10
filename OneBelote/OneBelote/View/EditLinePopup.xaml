@@ -1,0 +1,38 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
+             x:Class="OneBelote.View.EditLinePopup">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="LabelStyle"  TargetType="Label">
+                        <Setter Property="FontSize" Value="Medium"/>
+                        <Setter Property="VerticalTextAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </ResourceDictionary>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{i18n:Translate EditLine}" Grid.ColumnSpan="2" FontSize="Large"/>
+
+            <Label Text="{i18n:Translate Us}" Style="{StaticResource LabelStyle}" Grid.Row="1"/>
+            <Editor Grid.Column="1"  Grid.Row="1" Keyboard="Numeric" Text="{Binding LineToEdit.Us}"/>
+
+            <Label Text="{i18n:Translate Them}" Style="{StaticResource LabelStyle}" Grid.Row="2"/>
+            <Editor Grid.Row="2" Grid.Column="1" Keyboard="Numeric" Text="{Binding LineToEdit.Them}"/>
+
+            <Button Clicked="OnGoClicked" Grid.Column="1" Grid.Row="3" Text="{i18n:Translate Go}" VerticalOptions="Start" HorizontalOptions="End"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

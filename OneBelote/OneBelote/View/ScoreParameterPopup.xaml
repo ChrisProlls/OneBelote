@@ -3,7 +3,7 @@
              x:Class="OneBelote.View.ScoreParameterPopup"
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote">
     <ContentPage.Content>
-        <Grid Margin="5">
+        <Grid Margin="10">
             <Grid.Resources>
                 <ResourceDictionary>
                     <Style x:Key="LabelStyle"  TargetType="Label">
@@ -32,7 +32,7 @@
             <Label Text="{i18n:Translate YourScore}"
                    Style="{StaticResource LabelStyle}"
                    Grid.Row="1"/>
-            <Entry Grid.Column="1" Grid.Row="1" x:Name="TBScore" Keyboard="Numeric"  Text="{Binding Score}"/>
+            <Entry Grid.Column="1" Grid.Row="1" x:Name="TBScore" Keyboard="Numeric" Text="{Binding Score}"/>
 
             <StackLayout Grid.Column="1" Grid.Row="3" Orientation="Vertical">
                 <Picker Title="{i18n:Translate WhoHasBelote}"

@@ -106,6 +106,15 @@ namespace OneBelote.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit the line.
+        /// </summary>
+        internal static string EditLine {
+            get {
+                return ResourceManager.GetString("EditLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go.
         /// </summary>
         internal static string Go {
