@@ -5,7 +5,24 @@
              xmlns:i18n="clr-namespace:OneBelote.Localization;assembly=OneBelote"
              BackgroundColor="{StaticResource BackgroundColor}"
              Title="{i18n:Translate HomeLabel}">
-  <StackLayout Padding="10">
-    <Label Text="This is a detail page. To get the 'triple' line icon on each platform add a icon to each platform and update the 'Master' page with an Icon that references it."/>
-  </StackLayout>
+    <ScrollView Margin="5">
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style x:Key="LabelStyle"  TargetType="Label">
+                        <Setter Property="FontSize" Value="Medium"/>
+                        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                        <Setter Property="LineBreakMode" Value="WordWrap"/>
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>
+
+            <Label Text="{i18n:Translate HomeWelcome}" FontSize="Large" Margin="10, 10, 0, 20" Style="{StaticResource LabelStyle}"/>
+            <Label Text="{i18n:Translate HomeDescription}" Style="{StaticResource LabelStyle}"/>
+            <Label Text="{i18n:Translate HomeAppDesc}" Style="{StaticResource LabelStyle}"/>
+            <Label Text="{i18n:Translate HomeFeedback}" Style="{StaticResource LabelStyle}"/>
+            <Label Text="{i18n:Translate HomeEnjoy}" Style="{StaticResource LabelStyle}"/>
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>

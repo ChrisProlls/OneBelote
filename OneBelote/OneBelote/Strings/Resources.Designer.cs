@@ -187,7 +187,7 @@ namespace OneBelote.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to my application !.
+        ///   Looks up a localized string similar to Welcome !.
         /// </summary>
         internal static string HomeWelcome {
             get {

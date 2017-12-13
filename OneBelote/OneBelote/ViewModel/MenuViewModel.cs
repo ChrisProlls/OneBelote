@@ -25,8 +25,7 @@ namespace OneBelote.ViewModel
             {
                 new BeloteMenuItem { Title = Resources.HomeLabel,  Page = nameof(Home), Icon = "fa-home" },
                 new BeloteMenuItem { Title = Resources.NewGame, Page = nameof(NewGame), Icon = "fa-play" },
-                new BeloteMenuItem { Title = Resources.LastParties, Page = nameof(LastGames), Icon = "fa-trophy"  },
-                new BeloteMenuItem { Title = Resources.AboutLabel, Page = nameof(Home), Icon = "fa-envelope"  }
+                new BeloteMenuItem { Title = Resources.LastParties, Page = nameof(LastGames), Icon = "fa-trophy"  }
             });
 
         public ObservableCollection<BeloteMenuItem> MenuItems
