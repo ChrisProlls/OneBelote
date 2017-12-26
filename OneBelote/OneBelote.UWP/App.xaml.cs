@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Toasts.UWP;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -78,6 +79,10 @@ namespace OneBelote.UWP
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            Xamarin.Forms.DependencyService.Register<ToastNotification>(); // Register your dependency
+            ToastNotification.Init();
+            
         }
 
         /// <summary>

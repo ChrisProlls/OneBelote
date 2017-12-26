@@ -8,7 +8,7 @@
         <pages:Menu x:Name="Menu" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <iconize:IconNavigationPage BarBackgroundColor="{StaticResource CustomColor}">
+        <iconize:IconNavigationPage BarBackgroundColor="{StaticResource CustomColor}" BarTextColor="White">
             <x:Arguments>
                 <pages:Home />
             </x:Arguments>

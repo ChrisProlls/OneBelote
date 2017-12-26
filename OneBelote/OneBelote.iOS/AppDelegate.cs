@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Plugin.Iconize;
 using UIKit;
 
 namespace OneBelote.iOS
@@ -23,6 +24,8 @@ namespace OneBelote.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Iconize.With(new Plugin.Iconize.Fonts.FontAwesomeModule());
+            FormsPlugin.Iconize.iOS.IconControls.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

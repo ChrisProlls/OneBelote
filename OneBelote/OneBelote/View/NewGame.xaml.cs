@@ -1,6 +1,7 @@
 ﻿using OneBelote.Model;
 using OneBelote.ViewModel;
 using OneBelote.ViewModel.CommandArgs;
+using Plugin.Iconize;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,30 @@ namespace OneBelote.View
 
                 await Navigation.PushModalAsync(editModel);
             };
+
+            InitToolbar();
+        }
+
+        private void InitToolbar()
+        {
+            // Hack because Iconize don't implements UWP
+            if (Device.RuntimePlatform == Device.UWP)
+                this.ToolbarItems.Add(new ToolbarItem
+                {
+                    Text = Strings.Resources.Save,
+                    Icon = new FileImageSource
+                    {
+                        File = "Assets/SaveIcon.png"
+                    },
+                    Command = ViewModel.SaveScoreCommand
+                });
+            else
+                this.ToolbarItems.Add(new IconToolbarItem
+                {
+                    Icon = "fa-save",
+                    IconColor = Color.White,
+                    Command = ViewModel.SaveScoreCommand
+                });
         }
     }
 }

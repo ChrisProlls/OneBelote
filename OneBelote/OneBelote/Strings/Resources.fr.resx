@@ -180,7 +180,7 @@
   <data name="Resume" xml:space="preserve">
     <value>Résumé</value>
   </data>
-  <data name="Save.Label" xml:space="preserve">
+  <data name="Save" xml:space="preserve">
     <value>Enregistrer</value>
   </data>
   <data name="SavingOk" xml:space="preserve">

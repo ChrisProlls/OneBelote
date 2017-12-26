@@ -29,7 +29,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label Text="Memo" FontSize="Large" Margin="10, 10, 0, 20" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Memo" FontSize="Large"  Style="{StaticResource LabelStyle}"/>
 
                 <StackLayout Grid.Row="1">
                     <Grid Margin="0, 10, 0, 0">
